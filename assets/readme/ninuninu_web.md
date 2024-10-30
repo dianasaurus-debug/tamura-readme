@@ -6,10 +6,11 @@
 | Tipe         | API, Admin & Landing Page|
 | Endpoint API | /api | -->
 
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+ | Name | desc |
+  |:----: | ---- |
+  Hi | 1234
+  cls | clear
+
 ### Integrated 3rd API
 
 - Firebase
