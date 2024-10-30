@@ -2,9 +2,9 @@
 ### Ringkasan project
 | Nama         | Nilai               |
 |--------------|---------------------|
-| Tech Stack     | Laravel, CSS, JS, HTML, Bootstrap, JQuery |
-| Tipe         | API, Admin & Landing Page        |
-| Endpoint API         | /api        |
+| Tech Stack:     | Laravel, CSS, JS, HTML, Bootstrap, JQuery |
+| Tipe:         | API, Admin & Landing Page        |
+| Endpoint API:         | /api        |
 
 ### Integrated 3rd API
 
