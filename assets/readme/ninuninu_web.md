@@ -1,9 +1,15 @@
 # Ninuninu.id Website 
 ### Ringkasan project
-| Nama         | Nilai               ||--------------|---------------------|| Tech Stack    | Laravel, CSS, JS, HTML, Bootstrap, JQuery |
-| Tipe        | API, Admin & Landing Page        |
-| Endpoint API         | /api        |
+<!-- | Nama         | Nilai               |
+|--------------|---------------------|
+| Tech Stack   | Laravel, CSS, JS, HTML, Bootstrap, JQuery|
+| Tipe         | API, Admin & Landing Page|
+| Endpoint API | /api | -->
 
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
 ### Integrated 3rd API
 
 - Firebase
