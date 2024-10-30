@@ -248,7 +248,7 @@
 
     window.onload = () => {
       const urlParams = new URLSearchParams(window.location.search);
-      const filename = urlParams.get('filename') ?? 'ninuninu_web.md';
+      const filename = urlParams.get('filename') == null ?  'ninuninu_web.md' : urlParams.get('filename');
       console.log(`filename : ${filename}`)
       getReadme(filename);
     };
