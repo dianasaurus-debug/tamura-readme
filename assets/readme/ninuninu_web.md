@@ -1,15 +1,10 @@
 # Ninuninu.id Website 
 ### Ringkasan project
-<!-- | Nama         | Nilai               |
+| Nama         | Nilai               |
 |--------------|---------------------|
 | Tech Stack   | Laravel, CSS, JS, HTML, Bootstrap, JQuery|
 | Tipe         | API, Admin & Landing Page|
-| Endpoint API | /api | -->
-
- | Name | desc |
-  |:----: | ---- |
-  Hi | 1234
-  cls | clear
+| Endpoint API | /api |
 
 ### Integrated 3rd API
 
