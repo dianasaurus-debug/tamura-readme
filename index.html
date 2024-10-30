@@ -16,11 +16,6 @@
   <!-- Jquery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
 
 
   <link rel="stylesheet" href="assets/css/style.css">
@@ -114,8 +109,9 @@
         </button>
         <div class="collapse" id="otodeli-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Otodeli App</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Otodeli Website</a></li>
+            <li><a href="?otodeli_mobile.md" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Otodeli App</a></li>
+            <li><a href="?otodeli_web.md" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Otodeli Website</a>
+            </li>
           </ul>
         </div>
       </li>
@@ -126,15 +122,16 @@
         </button>
         <div class="collapse" id="ninuninu-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Ninuninu App</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Ninuninu Website</a></li>
+            <li><a href="?ninuninu_mobile.md" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Ninuninu App</a></li>
+            <li><a href="?ninuninu_web.md" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Ninuninu Website</a>
+            </li>
           </ul>
         </div>
       </li>
-      
+
     </ul>
     <hr>
-   
+
   </aside>
 
   <main class="col-sm-10 bg-body-tertiary" id="main">
@@ -157,13 +154,12 @@
         </div> -->
       </div>
 
-      <div id="included_content" style="display:none"></div>
       <div class="row">
         <div class="col-12 mb-4 mb-lg-0" id="display_content">
         </div>
       </div>
 
-    
+
     </div>
   </main>
 
@@ -178,7 +174,7 @@
         <span class="d-print-block">ADK Projects Docs</span>
       </a>
       <hr>
-     
+
       <ul class="list-unstyled ps-0">
         <li class="mb-1">
           <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
@@ -187,16 +183,19 @@
           </button>
           <div class="collapse" id="home-collapse">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Ninuninu App</a></li>
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Ninuninu Website</a></li>
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Otodeli App</a></li>
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Otodeli Website</a></li>
+              <li><a href="?ninuninu_web.md" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Ninuninu App</a>
+              </li>
+              <li><a href="?ninuninu_mobile.md" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Ninuninu Website</a>
+              </li>
+              <li><a href="?otodeli_mobile.md" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Otodeli App</a></li>
+              <li><a href="?otodeli_web.md" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Otodeli Website</a>
+              </li>
             </ul>
           </div>
         </li>
       </ul>
       <hr>
-    
+
     </div>
   </div>
 
@@ -213,51 +212,40 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
     crossorigin="anonymous"></script>
-  
+    <script src="
+    https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js
+    "></script>
 
   <script>
     function changeclass() {
       $("#main").toggleClass('col-sm-10 col-sm-12');
     }
     function getReadme(filename) {
-    fetch(`https://raw.githubusercontent.com/dianasaurus-debug/tamura-readme/refs/heads/main/assets/readme/${filename}`) // Fetch the file from GitHub's api
+      fetch(`https://raw.githubusercontent.com/dianasaurus-debug/tamura-readme/d97953aa69833c390699f940ad7b6f59a701d00a/assets/readme/${filename}`) // Fetch the file from GitHub's api
         .then(response => response.text())
         .then(data => {
-            // const content = atob(data.content); // Convert from base64 to readable text
-            document.getElementById("display_content").textContent = data; // Apply content to the document
-            console.log(data); // Log the content to the console
+          // const content = atob(data.content); // Convert from base64 to readable text
+          const md = window.markdownit({
+            html: true,
+            linkify: true,
+            typographer: true
+          })
+          document.getElementById("display_content").innerHTML = md.render(data); // Apply content to the document
         })
-        .catch(error => console.log(error)); // Catch any errors
+        .catch(error => () => {
+          alert(error);
+          document.getElementById("display_content").innerHTML = `<h6>Tidak dapat mendeteksi sumber dokumentasi!</h6>`
+        }); // Catch any errors
     }
 
-    getReadme("ninuninu_web.md");
+    window.onload = () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const filename = urlParams.get('filename');
+      console.log(`filename : ${filename}`)
+      getReadme(filename);
+    };
 
-    $(function(){
-              var filename = 'ninuninu_web.md';
-                // Load `README.md` and show
-                $("#included_content").load(`https://raw.githubusercontent.com/dianasaurus-debug/tamura-readme/refs/heads/main/assets/readme/${filename}`, function(data) {
-                    marked.setOptions({
-                        gfm: true,
-                        tables: true,
-                        breaks: true,
-                        pedantic: false,
-                        sanitize: true,
-                        smartLists: true,
-                        smartypants: false,
-                        langPrefix: '',
-                        highlight: function(code, lang) {
-                            return code;
-                        }
-                    });
-                    var html_str = marked(data);
-                    $("#display_content").html(html_str);
 
-                    // Apply highlight.js again
-                    hljs.initHighlighting.called = false;
-                    hljs.initHighlighting();
-                }); 
-            });
-        
   </script>
 </body>
 

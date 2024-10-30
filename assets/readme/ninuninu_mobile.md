@@ -2,9 +2,9 @@
 ### Ringkasan project
 | Nama         | Nilai               |
 |--------------|---------------------|
-| Tech Stack:    | Flutter, Java & Swift |
-| Tipe:   | Mobile App (Android & IOS)        |
-| Versi SDK:       | >=2.17.6 <3.0.0      |
+| Tech Stack    | Flutter, Java & Swift |
+| Tipe   | Mobile App (Android & IOS)        |
+| Versi SDK       | >=2.17.6 <3.0.0      |
 
 ### Integrated 3rd API
 
